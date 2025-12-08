@@ -37,14 +37,14 @@ describe('Funcionalidade: Login', () => {
         cy.get('.woocommerce-error > li').should('contain' , 'Erro: A senha fornecida para o e-mail')
     });
 
-    it('Deve fazer login com sucesso usando Massa de Dados', () => {
+    it('Deve fazer login com sucesso usando - Massa de Dados', () => {
         cy.get('#username').type(perfil.usuario)
         cy.get('#password').type(perfil.senha)
         cy.get('.woocommerce-form > .button').click()
         cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain' , 'Olá, luizfelipe.teste (não é luizfelipe.teste? Sair)')
     });
 
-    it.only('Deve fazer login com sucesso usando Fixture', () => {
+    it('Deve fazer login com sucesso - usando Fixture', () => {
         cy.fixture('perfil').then(dados => {
         cy.get('#username').type(dados.usuario)
         cy.get('#password').type(dados.senha , {log: false})
@@ -52,4 +52,10 @@ describe('Funcionalidade: Login', () => {
         cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain' , 'Olá, luizfelipe.teste (não é luizfelipe.teste? Sair)')
         })
     });
+
+    it.only('deve fazer login com sucesso - usando Comando Customizado', () => {
+        cy.login('luizfelipe.teste@gmail.com', '25010643A')
+        cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain' , 'Olá, luizfelipe.teste (não é luizfelipe.teste? Sair)')
+
+    })
 });
