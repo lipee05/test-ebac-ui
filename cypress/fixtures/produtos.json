@@ -1,0 +1,21 @@
+[
+    {
+        "nomeProduto": "Stark Fundamental Hoodie",
+        "tamanho": "M",
+        "cor": "Purple",
+        "quantidade": 3
+    },
+    {
+        "nomeProduto": "Augusta Pullover Jacket",
+        "tamanho": "XS",
+        "cor": "Red",
+        "quantidade": 4
+    },
+    {
+        "nomeProduto": "Celeste Sports Bra",
+        "tamanho": "L",
+        "cor": "Yellow",
+        "quantidade": 5
+    }
+    
+]
