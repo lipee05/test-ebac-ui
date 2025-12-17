@@ -15,15 +15,13 @@ describe('Funcionalidade: Login', () => {
     });
 
     it('Deve fazer login com sucesso', () => {
- 
         cy.get('#username').type('luizfelipe.teste@gmail.com')
         cy.get('#password').type('25010643A')
         cy.get('.woocommerce-form > .button').click()
-        cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain' , 'Olá, luizfelipe.teste (não é luizfelipe.teste? Sair)')
+        cy.get('.page-title').should('contain' , 'Minha conta')
     });
     
     it('Deve exibir uma mensagem de erro ao inserir usuário inválido', () => {
-
         cy.get('#username').type('felipe.teste@gmail.com')
         cy.get('#password').type('25010643A')
         cy.get('.woocommerce-form > .button').click()
@@ -53,7 +51,7 @@ describe('Funcionalidade: Login', () => {
         })
     });
 
-    it.only('deve fazer login com sucesso - usando Comando Customizado', () => {
+    it('deve fazer login com sucesso - usando Comando Customizado', () => {
         cy.login('luizfelipe.teste@gmail.com', '25010643A')
         cy.get('.woocommerce-MyAccount-content > :nth-child(2)').should('contain' , 'Olá, luizfelipe.teste (não é luizfelipe.teste? Sair)')
 
